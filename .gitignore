@@ -1,0 +1,15 @@
+# ignore files
+*~
+.Rhistory
+.Rbuildignore
+.Rproj.user/
+.directory
+*.pyc
+*.DS_Store
+*.bam
+*.bam.bai
+align_data_1stadd/
+scripts/.history
+results/.history
+.history
+geneset/
