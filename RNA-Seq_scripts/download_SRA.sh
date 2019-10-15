@@ -18,8 +18,8 @@ SARName=("Col0_rep1" "Col0_rep2" "Col0_rep3"
 
 for i in {0..8}; do
 
-    # ${SRATOOLS_PATH}/fasterq-dump ${SARRaw[i]} -e 12 \
-    #                 -O ${RAW_PATH}
+    ${SRATOOLS_PATH}/fasterq-dump ${SARRaw[i]} -e 12 \
+                    -O ${RAW_PATH}
 
     ${BIN_PATH}/gzip ${SARRaw[i]}.fastq
 
