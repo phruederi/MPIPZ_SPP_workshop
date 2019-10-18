@@ -21,7 +21,7 @@ SRAName=("Col0_s_rep1" "Col0_s_rep2" "Col0_s_rep3"
          "MeJA_s_rep1" "MeJA_s_rep2" "MeJA_s_rep3"
          "flg22_s_rep1" "flg22_s_rep2" "flg22_s_rep3")
 
-for i in {1..3}; do
+for i in {0..2}; do
 
     ${SRATOOLS_PATH}/fasterq-dump ${SRARaw[i]} -e 12 \
                     -O ${RAW_PATH}
@@ -42,7 +42,7 @@ SRARaw=("SRR7865799" "SRR7865800" "SRR7865801"
 SRAName=("Col0_p_rep1" "Col0_p_rep2" "Col0_p_rep3"
          "flg22_p_rep1" "flg22_p_rep2" "flg22_p_rep3")
 
-for i in {1..6}; do
+for i in {0..5}; do
     ${SRATOOLS_PATH}/fasterq-dump ${SRARaw[i]} \
                     -p \
                     -e ${CORENUM} \
