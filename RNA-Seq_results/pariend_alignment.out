@@ -1,0 +1,211 @@
+====================================
+Kallisto using ath cDNA for Col0_p_rep1.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data/Col0_p_rep1_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data/Col0_p_rep1_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 27,444,476 reads, 26,832,977 reads pseudoaligned
+[quant] estimated average fragment length: 197.246
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,281 rounds
+
+HISAT2 using ath genome for Col0_p_rep1.
+27444476 reads; of these:
+  27444476 (100.00%) were paired; of these:
+    1463022 (5.33%) aligned concordantly 0 times
+    25291733 (92.16%) aligned concordantly exactly 1 time
+    689721 (2.51%) aligned concordantly >1 times
+    ----
+    1463022 pairs aligned concordantly 0 times; of these:
+      20269 (1.39%) aligned discordantly 1 time
+    ----
+    1442753 pairs aligned 0 times concordantly or discordantly; of these:
+      2885506 mates make up the pairs; of these:
+        1820545 (63.09%) aligned 0 times
+        1041753 (36.10%) aligned exactly 1 time
+        23208 (0.80%) aligned >1 times
+96.68% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Col0_p_rep2.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data/Col0_p_rep2_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data/Col0_p_rep2_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 26,507,879 reads, 25,807,644 reads pseudoaligned
+[quant] estimated average fragment length: 202.809
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,098 rounds
+
+HISAT2 using ath genome for Col0_p_rep2.
+26507879 reads; of these:
+  26507879 (100.00%) were paired; of these:
+    633066 (2.39%) aligned concordantly 0 times
+    25161814 (94.92%) aligned concordantly exactly 1 time
+    712999 (2.69%) aligned concordantly >1 times
+    ----
+    633066 pairs aligned concordantly 0 times; of these:
+      15171 (2.40%) aligned discordantly 1 time
+    ----
+    617895 pairs aligned 0 times concordantly or discordantly; of these:
+      1235790 mates make up the pairs; of these:
+        817131 (66.12%) aligned 0 times
+        409132 (33.11%) aligned exactly 1 time
+        9527 (0.77%) aligned >1 times
+98.46% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for Col0_p_rep3.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data/Col0_p_rep3_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data/Col0_p_rep3_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 28,026,082 reads, 27,460,011 reads pseudoaligned
+[quant] estimated average fragment length: 201.19
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,273 rounds
+
+HISAT2 using ath genome for Col0_p_rep3.
+28026082 reads; of these:
+  28026082 (100.00%) were paired; of these:
+    652077 (2.33%) aligned concordantly 0 times
+    26662726 (95.14%) aligned concordantly exactly 1 time
+    711279 (2.54%) aligned concordantly >1 times
+    ----
+    652077 pairs aligned concordantly 0 times; of these:
+      17914 (2.75%) aligned discordantly 1 time
+    ----
+    634163 pairs aligned 0 times concordantly or discordantly; of these:
+      1268326 mates make up the pairs; of these:
+        813753 (64.16%) aligned 0 times
+        445103 (35.09%) aligned exactly 1 time
+        9470 (0.75%) aligned >1 times
+98.55% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for flg22_p_rep1.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data/flg22_p_rep1_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data/flg22_p_rep1_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 26,843,188 reads, 26,149,696 reads pseudoaligned
+[quant] estimated average fragment length: 197.535
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,111 rounds
+
+HISAT2 using ath genome for flg22_p_rep1.
+26843188 reads; of these:
+  26843188 (100.00%) were paired; of these:
+    626925 (2.34%) aligned concordantly 0 times
+    25600771 (95.37%) aligned concordantly exactly 1 time
+    615492 (2.29%) aligned concordantly >1 times
+    ----
+    626925 pairs aligned concordantly 0 times; of these:
+      14739 (2.35%) aligned discordantly 1 time
+    ----
+    612186 pairs aligned 0 times concordantly or discordantly; of these:
+      1224372 mates make up the pairs; of these:
+        855530 (69.88%) aligned 0 times
+        361714 (29.54%) aligned exactly 1 time
+        7128 (0.58%) aligned >1 times
+98.41% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for flg22_p_rep2.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data/flg22_p_rep2_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data/flg22_p_rep2_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 30,236,477 reads, 29,470,277 reads pseudoaligned
+[quant] estimated average fragment length: 204.757
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,135 rounds
+
+HISAT2 using ath genome for flg22_p_rep2.
+30236477 reads; of these:
+  30236477 (100.00%) were paired; of these:
+    752366 (2.49%) aligned concordantly 0 times
+    28742695 (95.06%) aligned concordantly exactly 1 time
+    741416 (2.45%) aligned concordantly >1 times
+    ----
+    752366 pairs aligned concordantly 0 times; of these:
+      18616 (2.47%) aligned discordantly 1 time
+    ----
+    733750 pairs aligned 0 times concordantly or discordantly; of these:
+      1467500 mates make up the pairs; of these:
+        964995 (65.76%) aligned 0 times
+        492181 (33.54%) aligned exactly 1 time
+        10324 (0.70%) aligned >1 times
+98.40% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+====================================
+Kallisto using ath cDNA for flg22_p_rep3.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data/flg22_p_rep3_R1.fq.gz
+                             /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data/flg22_p_rep3_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 28,456,453 reads, 27,754,503 reads pseudoaligned
+[quant] estimated average fragment length: 202.667
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,117 rounds
+
+HISAT2 using ath genome for flg22_p_rep3.
+28456453 reads; of these:
+  28456453 (100.00%) were paired; of these:
+    757364 (2.66%) aligned concordantly 0 times
+    27024575 (94.97%) aligned concordantly exactly 1 time
+    674514 (2.37%) aligned concordantly >1 times
+    ----
+    757364 pairs aligned concordantly 0 times; of these:
+      16695 (2.20%) aligned discordantly 1 time
+    ----
+    740669 pairs aligned 0 times concordantly or discordantly; of these:
+      1481338 mates make up the pairs; of these:
+        978783 (66.07%) aligned 0 times
+        492886 (33.27%) aligned exactly 1 time
+        9669 (0.65%) aligned >1 times
+98.28% overall alignment rate
+[bam_sort_core] merging from 0 files and 45 in-memory blocks...
+=====================================
+ 

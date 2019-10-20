@@ -1,0 +1,13 @@
+{
+	"n_targets": 48359,
+	"n_bootstraps": 0,
+	"n_processed": 5382860,
+	"n_pseudoaligned": 4903969,
+	"n_unique": 2497260,
+	"p_pseudoaligned": 91.1,
+	"p_unique": 46.4,
+	"kallisto_version": "0.45.1",
+	"index_version": 10,
+	"start_time": "Fri Oct 18 15:51:51 2019",
+	"call": "/home/yniu/Biotools/kallisto_v0.45.1/kallisto quant -t 45 -i /netscratch/dep_psl/grp_rgo/yniu/ref/ath/ath.kindex -o /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_align_data/flg22_s_rep2_ath_kallisto --single -l 200 -s 20 /netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data/flg22_s_rep2.fq.gz"
+}
