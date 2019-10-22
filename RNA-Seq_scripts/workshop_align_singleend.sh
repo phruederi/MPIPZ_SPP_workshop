@@ -1,16 +1,21 @@
 date
 
-REF_PATH=/netscratch/dep_psl/grp_rgo/yniu/ref/ath
-CLEAN_PATH=/netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_clean_data
-ALIGN_PATH=/netscratch/dep_psl/grp_rgo/yniu/MPIPZ_SPP_workshop/RNA-Seq_align_data
+WORKSHOP_PATH=/netscratch/common/MPIPZ_SPP_workshop
 
-KALLISTO_PATH=/home/yniu/Biotools/kallisto_v0.45.1
-HISAT2_PATH=/home/yniu/Biotools/hisat2-2.1.0
+KALLISTO_PATH=${WORKSHOP_PATH}/software/kallisto-0.46.0
+HISAT2_PATH=${WORKSHOP_PATH}/software/hisat2-2.1.0
 SAMTOOL_PATH=/opt/share/software/bin
-RM_PATH=/bin/rm
-MOVE_PATH=/bin/mv
+BIN_PATH=/bin
 
-CORENUM=45
+REF_PATH=${WORKSHOP_PATH}/RNA-Seq/RNA-Seq_index
+CLEAN_PATH=~/RNA-Seq_clean_data
+ALIGN_PATH=~/RNA-Seq_align_data
+
+if [ ! -d "${ALIGN_PATH}" ]; then
+    mkdir ${ALIGN_PATH}
+fi
+
+CORENUM=2
 SPECIES='ath'
 
 cd ${REF_PATH}
@@ -43,7 +48,7 @@ for i in ${fqnames[@]}; do
 
     ${SAMTOOL_PATH}/samtools index ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.bam
 
-    ${RM_PATH} ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.sam
+    ${BIN_PATH}/rm ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.sam
     echo "====================================="
 
 done
