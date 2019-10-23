@@ -3,8 +3,6 @@
 
 <!-- content start -->
 
-**Table of Contents**
-
 - [1. Prerequisite](#1-prerequisite)
 - [2. Alignment by HISAT2](#2-alignment-by-hisat2)
     - [2.1 Simulation](#21-simulation)
