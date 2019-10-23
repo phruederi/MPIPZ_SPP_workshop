@@ -63,7 +63,7 @@ cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_align*
 
 ### 2.1 Index
 
-[HISAT2](https://ccb.jhu.edu/software/hisat2/index.shtml) makes an index of ***Arabidopsis* genomes [TAIR10](ftp://ftp.ensemblgenomes.org/pub/plants/release-45/fasta/arabidopsis_thaliana/dna/)(`Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz`). The index can be used for multiple RNA-Seq experiments, as long as the organism is the same. Building an HISAT2 index is time-consuming, and we have already built one looks like:
+[HISAT2](https://ccb.jhu.edu/software/hisat2/index.shtml) at first makes an index according to the *Arabidopsis* genome [TAIR10](ftp://ftp.ensemblgenomes.org/pub/plants/release-45/fasta/arabidopsis_thaliana/dna/) (`Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz`). The index can be used for multiple RNA-Seq experiments, as long as the organism is the same. Building an HISAT2 index is time-consuming, and we have already built one looks like:
 
 ```bash
 RNA-Seq_index/athht2index/
@@ -83,9 +83,9 @@ The script for building the index is:
 ## do not run the codes below！！
 mkdir athht2index
 cd athht2index
-${HISAT2_PATH}/hisat2-build -f \
-              ${REF_PATH}/ath/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa \
-              genome
+/hisat2-build -f \
+  ${REF_PATH}/ath/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa \
+  genome
 ```
 
 ### 2.2 Alignment
