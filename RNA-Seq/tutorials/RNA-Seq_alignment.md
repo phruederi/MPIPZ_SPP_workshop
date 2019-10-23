@@ -16,7 +16,7 @@
 
 ## 1. Prerequisites
 
-1. clean fastq files
+1. Clean fastq files
 
 We will use pair-end data for demonstration and single-end data for practice.
 
@@ -53,11 +53,48 @@ We will use pair-end data for demonstration and single-end data for practice.
 
 2. Scripts.
 
-Copy scripts we need for alignment.
+Copy the scripts we need for alignment.
 
 ```bash
 cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_align* ~
 ```
+
+## 2. Alignment by HISAT2
+
+### 2.1 Index
+
+[HISAT2](https://ccb.jhu.edu/software/hisat2/index.shtml) makes an index of ***Arabidopsis* genomes [TAIR10](ftp://ftp.ensemblgenomes.org/pub/plants/release-45/fasta/arabidopsis_thaliana/dna/)(`Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz`). The index can be used for multiple RNA-Seq experiments, as long as the organism is the same. Building an HISAT2 index is time-consuming, and we have already built one looks like:
+
+```bash
+RNA-Seq_index/athht2index/
+├── genome.1.ht2
+├── genome.2.ht2
+├── genome.3.ht2
+├── genome.4.ht2
+├── genome.5.ht2
+├── genome.6.ht2
+├── genome.7.ht2
+└── genome.8.ht2
+```
+
+The script for building the index is:
+
+```bash
+## do not run the codes below！！
+mkdir athht2index
+cd athht2index
+${HISAT2_PATH}/hisat2-build -f \
+              ${REF_PATH}/ath/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa \
+              genome
+```
+
+### 2.2 Alignment
+
+
+
+## 
+
+
 
 ## References
 
