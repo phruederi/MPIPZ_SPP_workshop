@@ -21,14 +21,17 @@ SPECIES='ath'
 cd ${REF_PATH}
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~single end~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-fq=($(ls ${CLEAN_PATH} | grep _s_.*.fq.gz))
+## Q1: pattern for single-end? ##
+# fq=($(ls ${CLEAN_PATH} | grep ...)) #
 fqnames=($(echo "${fq[@]%%.*}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
 
 for i in ${fqnames[@]}; do
 
     echo "===================================="
     echo "Kallisto using ${SPECIES} cDNA for ${i}."
-    ${KALLISTO_PATH}/kallisto quant \
+
+    ## Q2: command for kallisto alignment? ##
+    ## ${KALLISTO_PATH}/kallisto ... \ ##
                     -t ${CORENUM} \
                     -i ${REF_PATH}/ath.kindex \
                     -o ${ALIGN_PATH}/${i}_${SPECIES}_kallisto \
@@ -41,7 +44,8 @@ for i in ${fqnames[@]}; do
                   -U ${CLEAN_PATH}/${i}.fq.gz \
                   -S ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.sam
 
-    ${SAMTOOL_PATH}/samtools sort \
+    ## Q3: command for samtools sort reads? ##
+    ## ${SAMTOOL_PATH}/samtools ... \ ##
                    -@ ${CORENUM} \
                    -o ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.bam \
                    ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.sam

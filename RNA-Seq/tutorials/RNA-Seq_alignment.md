@@ -3,7 +3,7 @@
 
 <!-- content start -->
 
-- [1. Prerequisite](#1-prerequisite)
+- [1. Prerequisites](#1-prerequisites)
 - [2. Alignment by HISAT2](#2-alignment-by-hisat2)
     - [2.1 Index](#21-index)
     - [2.2 Alignment](#21-alignment)
@@ -14,25 +14,11 @@
     
 <!-- content end -->
 
-## 1. Prerequisite
-
-We need to prepare two things before alignment:
+## 1. Prerequisites
 
 1. clean fastq files
 
-> single-end clean data set has three conditions: Col0, Col0 treated with flg22, and Col0 treated with methyl jasmonate (MeJA). Each condition has three replicates.
-
-```
-├── Col0_s_rep1_small.fq.gz
-├── Col0_s_rep2_small.fq.gz
-├── Col0_s_rep3_small.fq.gz
-├── flg22_s_rep1_small.fq.gz
-├── flg22_s_rep2_small.fq.gz
-├── flg22_s_rep3_small.fq.gz
-├── MeJA_s_rep1_small.fq.gz
-├── MeJA_s_rep2_small.fq.gz
-├── MeJA_s_rep3_small.fq.gz
-```
+We will use pair-end data for demonstration and single-end data for practice.
 
 > pair-end clean data has two conditions: Col0 and Col0 treated with flg22. Each condition has three replicates.
 
@@ -51,9 +37,27 @@ We need to prepare two things before alignment:
 ├── flg22_p_rep3_small_R2.fq.gz
 ```
 
-2. 
+> single-end clean data set has three conditions: Col0, Col0 treated with flg22, and Col0 treated with methyl jasmonate (MeJA). Each condition has three replicates.
 
+```
+├── Col0_s_rep1_small.fq.gz
+├── Col0_s_rep2_small.fq.gz
+├── Col0_s_rep3_small.fq.gz
+├── flg22_s_rep1_small.fq.gz
+├── flg22_s_rep2_small.fq.gz
+├── flg22_s_rep3_small.fq.gz
+├── MeJA_s_rep1_small.fq.gz
+├── MeJA_s_rep2_small.fq.gz
+├── MeJA_s_rep3_small.fq.gz
+```
 
+2. Scripts.
+
+Copy scripts we need for alignment.
+
+```bash
+cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_align* ~
+```
 
 ## References
 
