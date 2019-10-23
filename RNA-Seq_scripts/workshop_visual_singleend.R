@@ -35,6 +35,10 @@ mutate(Gene = Gene %>% {if_else(is.na(.), '', .)}) %>%
 mutate(Description = Description %>% {if_else(is.na(.), '', .)})
 
 ##~~~~~~~~~~~~~~~~~~~~load k alignments~~~~~~~~~~~~~~~~~~~~~~~~~~
+print('##~~~~~~~~~~~~~~~~~~~~~~~##')
+print('step1: load alignments')
+print('##~~~~~~~~~~~~~~~~~~~~~~~##')
+
 wd <- '/netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_align_data'
 setwd(wd)
 
@@ -49,6 +53,10 @@ kres <- file.path(wd, annoSample$sample, 'abundance.h5') %>%
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~normalization~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+print('##~~~~~~~~~~~~~~~~~~~~~~~##')
+print('step2: normalization counts')
+print('##~~~~~~~~~~~~~~~~~~~~~~~##')
+
 condi <- c('Col0', 'flg22', 'MeJA')
 sampleTable <- data.frame(condition = factor(rep(condi, each = 3), levels = condi))
 rownames(sampleTable) <- colnames(kres$counts)
@@ -68,6 +76,9 @@ rld <- rlog(degres)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~PCA plot~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+print('##~~~~~~~~~~~~~~~~~~~~~~~##')
+print('step3: PCA plot')
+print('##~~~~~~~~~~~~~~~~~~~~~~~##')
 cols <- colData(rld)[, 1] %>% factor(., labels = brewer.pal(3, name = 'Dark2'))
 
 pca <- rld %>%
