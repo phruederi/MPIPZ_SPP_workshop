@@ -8,7 +8,7 @@ SAMTOOL_PATH=/opt/share/software/bin
 BIN_PATH=/bin
 
 REF_PATH=${WORKSHOP_PATH}/RNA-Seq/RNA-Seq_index
-CLEAN_PATH=~/RNA-Seq_clean_data
+CLEAN_PATH=${WORKSHOP_PATH}/RNA-Seq/RNA-Seq_smallclean_data
 ALIGN_PATH=~/RNA-Seq_align_data
 
 if [ ! -d "${ALIGN_PATH}" ]; then
