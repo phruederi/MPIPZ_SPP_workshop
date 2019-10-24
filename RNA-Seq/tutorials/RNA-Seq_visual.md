@@ -77,13 +77,41 @@ pca2 <- pca$x[,2]
 pcaData <- data.frame(PC1 = pca1, PC2 = pca2, condition = colData(rld)[, 1], ID = rownames(colData(rld)))
 ```
 
+The PCA plots of pair-end RNA-Seq data looks like:
+
 ![PCA_pairend](res/PCA_pairend.jpg)
 
 ### 2.2 Heatmap
 
+Heatmap provides constructive overview of reads count, and it is often used to explore certain expression patterns of differentially expressed genes (DEGs).
+
+The following codes shows how to plot heatmap:
+
+```R
+## do not run the codes below！！
+## 'ntd' is the normalized counts.
+## 'pheatmap()' plots heatmap.
+heatmapData <- degres %>%
+  rownames %>%
+  match(res$ID[1:50], .) %>%
+  assay(ntd)[., ]
+
+df <- colData(degres) %>% as.data.frame
+heatmapPlot <- pheatmap(heatmapData,
+                        cluster_rows = TRUE,
+                        show_rownames = FALSE,
+                        cluster_cols = FALSE,
+                        annotation_col = df,
+                        annotation_colors = list(condition = c(Col0 = '#1B9E77', flg22 = '#D95F02')))
+```
+
+The heatmap (top 50 DEGs) of pair-end RNA-Seq data looks like:
+
 ![heatmap_singleend](res/heatmap_pairend.jpg)
 
 ### 2.3 Run visualization
+
+1. Generated PCA plot and heatmap pair-end through `ssh`:
 
 ```bash
 /netscratch/common/MPIPZ_SPP_workshop/software/R-3.6.1/bin/Rscript \

@@ -1,3 +1,8 @@
+##
+## originally by Yulong Niu
+## yniu@mpipz.mpg.de
+##
+
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~useful funcs~~~~~~~~~~~~~~~~~~~~~~~~
 checkZeros <- function(v, threshold) {
     res <- ifelse(sum(v == 0) > threshold, FALSE, TRUE)

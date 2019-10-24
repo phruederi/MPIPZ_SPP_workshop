@@ -1,3 +1,8 @@
+##
+## originally by Yulong Niu
+## yniu@mpipz.mpg.de
+##
+
 date
 
 FASTP_PATH=/netscratch/common/MPIPZ_SPP_workshop/software/fastp

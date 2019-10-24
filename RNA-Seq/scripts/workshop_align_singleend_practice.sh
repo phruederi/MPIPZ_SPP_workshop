@@ -1,3 +1,8 @@
+##
+## originally by Yulong Niu
+## yniu@mpipz.mpg.de
+##
+
 date
 
 WORKSHOP_PATH=/netscratch/common/MPIPZ_SPP_workshop
