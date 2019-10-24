@@ -53,7 +53,7 @@ We generated a set of small fastq files (randomly select ~1k reads) to accelerat
 
 2. Scripts.
 
-Copy the scripts we need for alignment.
+Copy the scripts we need for alignment through `ssh`.
 
 ```bash
 cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_align* ~
@@ -130,7 +130,7 @@ kallisto quant \
 
 ### 3.3 Run (pseudo-)alignment
 
-1. Run pair-end (pseudo-)alignment
+1. Run pair-end (pseudo-)alignment through `ssh`:
 
 ```bash
 ## it may take 5 min

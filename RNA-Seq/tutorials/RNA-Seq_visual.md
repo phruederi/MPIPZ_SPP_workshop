@@ -56,7 +56,11 @@ cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_visual
 
 ### 2.1 PCA plot 
 
+![PCA_pairend](res/PCA_pairend.jpg)
+
 ### 2.2 Heatmap
+
+![heatmap_singleend](res/heatmap_singleend.jpg)
 
 ### 2.3 Run visualization
 
