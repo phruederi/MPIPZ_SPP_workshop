@@ -4,12 +4,10 @@
 <!-- content start -->
 
 - [1. Prerequisites](#1-prerequisites)
-- [2. Alignment by HISAT2](#2-alignment-by-hisat2)
-    - [2.1 Index](#21-index)
-    - [2.2 Alignment](#21-alignment)
-- [3. Pseudo-alignment by kallisto](#3-pseudo-alignment-by-kallisto)
-    - [3.1 Index](#31-index)
-    - [3.2 Alignment and quantification](#32-alignment-and-quantification)
+- [2. Index](#2-index)
+- [3. Alignment](#3-alignment)
+    - [3.1 Alignment by HISAT2](#31-alignment-by-hisat2)
+    - [3.2 Pseudo-alignment by kallisto](#32-pseudo-alignment-by-kallisto)
 - [References](#references)
     
 <!-- content end -->
@@ -59,25 +57,27 @@ Copy the scripts we need for alignment.
 cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_align* ~
 ```
 
-## 2. Alignment by HISAT2
+## 2. Index
 
 ### 2.1 Index
 
-[HISAT2](https://ccb.jhu.edu/software/hisat2/index.shtml) at first makes an index according to the *Arabidopsis* genome [TAIR10](ftp://ftp.ensemblgenomes.org/pub/plants/release-45/fasta/arabidopsis_thaliana/dna/) (`Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz`). The index can be used for multiple RNA-Seq experiments, as long as the organism is the same. Building an HISAT2 index is time-consuming, and we have already built one looks like:
+[HISAT2](https://ccb.jhu.edu/software/hisat2/index.shtml) at first makes an index according to the *Arabidopsis* [TAIR10](http://plants.ensembl.org/Arabidopsis_thaliana/Info/Index) genome (`Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz`), whereas [kallisto](https://pachterlab.github.io/kallisto/) uses the transcriptome (`Arabidopsis_thaliana.TAIR10.cdna.all.fa.gz`). The index can be used for multiple RNA-Seq experiments, as long as the organism is the same. Building index is time-consuming, and we have already built one looks like:
 
 ```bash
-RNA-Seq_index/athht2index/
-├── genome.1.ht2
-├── genome.2.ht2
-├── genome.3.ht2
-├── genome.4.ht2
-├── genome.5.ht2
-├── genome.6.ht2
-├── genome.7.ht2
-└── genome.8.ht2
+RNA-Seq_index
+├── athht2index
+│   ├── genome.1.ht2
+│   ├── genome.2.ht2
+│   ├── genome.3.ht2
+│   ├── genome.4.ht2
+│   ├── genome.5.ht2
+│   ├── genome.6.ht2
+│   ├── genome.7.ht2
+│   └── genome.8.ht2
+├── ath.kindex
 ```
 
-The script for building the index is:
+The script for building the index:
 
 ```bash
 ## do not run the codes below！！
@@ -88,13 +88,11 @@ cd athht2index
   genome
 ```
 
-### 2.2 Alignment
+## 3. Alignment
 
+### 3.1 Alignment by HISAT2
 
-
-## 
-
-
+### 3.2 Pseudo-alignment by kallisto
 
 ## References
 
@@ -104,4 +102,6 @@ cd athht2index
 
 * Sahraeian SME, Mohiyuddin M, Sebra R, Tilgner H, Afshar PT, Au KF, Bani Asadi N, Gerstein MB, Wong WH, Snyder MP, Schadt E, Lam HYK. **Gaining comprehensive biological insight into the transcriptome by performing a broad-spectrum RNA-seq analysis.** *Nat Commun.* 2017;8(1):59.
 
-* 
+* Castrillo G\*, Teixeira PJ\*, Paredes SH\*, Law TF, de Lorenzo L, Feltcher ME, Finkel OM, Breakfield NW, Mieczkowski P, Jones CD, Paz-Ares J, Dangl JL. **Root microbiota drive direct integration of phosphate stress and immunity.** *Nature* 2017;543(7646):513-518. Single-end data RNA-Seq data.
+
+* Völz R\*, Kim SK, Mi J, Rawat AA, Veluchamy A, Mariappan KG, Rayapuram N, Daviere JM, Achard P, Blilou I, Al-Babili S, Benhamed M, Hirt H\*. **INDETERMINATE-DOMAIN 4 (IDD4) coordinates immune responses with plant-growth in Arabidopsis thaliana.** PLoS Pathog. 2019;15(1):e1007499. Pair-end RNA-Seq data.
