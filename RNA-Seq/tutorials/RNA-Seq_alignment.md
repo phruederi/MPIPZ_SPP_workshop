@@ -81,11 +81,17 @@ The script for building the index:
 
 ```bash
 ## do not run the codes below！！
+## HISAT2 index
 mkdir athht2index
 cd athht2index
-/hisat2-build -f \
-  ${REF_PATH}/ath/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa \
+hisat2-build -f \
+  Arabidopsis_thaliana.TAIR10.dna.toplevel.fa \
   genome
+
+## kallisto index
+kallisto index \
+  -i ath.kindex \
+  Arabidopsis_thaliana.TAIR10.cdna.all.fa.gz
 ```
 
 ## 3. Alignment
