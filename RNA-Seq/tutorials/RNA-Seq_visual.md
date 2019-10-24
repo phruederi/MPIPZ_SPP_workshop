@@ -60,7 +60,7 @@ cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_visual
 
 ### 2.2 Heatmap
 
-![heatmap_singleend](res/heatmap_singleend.jpg)
+![heatmap_singleend](res/heatmap_pairend.jpg)
 
 ### 2.3 Run visualization
 
