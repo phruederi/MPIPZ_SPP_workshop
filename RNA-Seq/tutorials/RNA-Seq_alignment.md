@@ -18,7 +18,7 @@
 
 1. Clean fastq files
 
-We will use pair-end data for demonstration and single-end data for practice.
+We will use pair-end data for demonstration and single-end data for practice. We generated a set of small fastq files (randomly select ~1k reads) for demonstration. 
 
 > pair-end clean data has two conditions: Col0 and Col0 treated with flg22. Each condition has three replicates.
 
@@ -77,7 +77,7 @@ RNA-Seq_index
 ├── ath.kindex
 ```
 
-The script for building the index:
+The script for building the index looks like:
 
 ```bash
 ## do not run the codes below！！
@@ -130,27 +130,77 @@ kallisto quant \
 
 ### 3.3 Run (pseudo-)alignment
 
+1. Run pair-end (pseudo-)alignment:
+
 ```bash
 ## it may take 5 min
 nohup bash ~/workshop_align_pairend.sh > ~/align_pairend.out
 ```
 
+2. Check alignment information:
 
+```bash
+head -n 36 ~/align_pairend.out
+```
+
+The output looks like:
+
+```
+====================================
+Kallisto using ath cDNA for Col0_p_rep1_small.
+
+[quant] fragment length distribution will be estimated from the data
+[index] k-mer length: 31
+[index] number of targets: 48,359
+[index] number of k-mers: 45,567,218
+[index] number of equivalence classes: 93,973
+[quant] running in paired-end mode
+[quant] will process pair 1: /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_smallclean_data/Col0_p_rep1_small_R1.fq.gz
+                             /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_smallclean_data/Col0_p_rep1_small_R2.fq.gz
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 967 reads, 949 reads pseudoaligned
+[quant] estimated average fragment length: 197.992
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 477 rounds
+
+HISAT2 using ath genome for Col0_p_rep1_small.
+967 reads; of these:
+  967 (100.00%) were paired; of these:
+    59 (6.10%) aligned concordantly 0 times
+    890 (92.04%) aligned concordantly exactly 1 time
+    18 (1.86%) aligned concordantly >1 times
+    ----
+    59 pairs aligned concordantly 0 times; of these:
+      1 (1.69%) aligned discordantly 1 time
+    ----
+    58 pairs aligned 0 times concordantly or discordantly; of these:
+      116 mates make up the pairs; of these:
+        75 (64.66%) aligned 0 times
+        41 (35.34%) aligned exactly 1 time
+        0 (0.00%) aligned >1 times
+96.12% overall alignment rate
+[bam_sort_core] merging from 0 files and 2 in-memory blocks...
+=====================================
+```
+
+3. Summary 
 
 
 ## 4. Practice
 
-Open the script `workshop_align_singleend_practice.sh` at your home folder (enter home folder by execute `cd ~`). A total of three places marked with `Q1 - Q3` needed to be fixed. Then run it as:
+1. Open the script `workshop_align_singleend_practice.sh` at your home folder (enter home folder by execute `cd ~`). A total of three places marked with `Q1 - Q3` needed to be fixed. Then run it as:
 
 ```
-## 1. run single alignment, it may take 5 min
+## 1. run single-end (pseudo-)alignment, it may take 5 min
 nohup bash ~/workshop_align_singleend_practice.sh > ~/align_singleend.out
 
-## 2. check running information
+## 2. check alignment information
 head -n 25 ~/align_singleend.out
 
 ## 3. summary alignment results
 ```
+
+2. Have an overview of 
 
 
 
