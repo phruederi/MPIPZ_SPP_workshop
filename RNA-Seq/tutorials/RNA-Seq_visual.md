@@ -67,6 +67,12 @@ cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_visual
 ~/workshop_visual_pairend.R
 ```
 
+
+```bash
+/netscratch/common/MPIPZ_SPP_workshop/software/R-3.6.1/bin/Rscript \
+~/workshop_visual_singleend_answer.R
+```
+
 ## References
 
 * Love MI, Huber W, Anders S. **Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2.** *Genome Biol.* 2014;15(12):550.

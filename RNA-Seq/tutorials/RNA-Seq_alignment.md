@@ -37,7 +37,7 @@ We generated a set of small fastq files (randomly select ~1k reads) to accelerat
 ├── flg22_p_rep3_small_R2.fq.gz
 ```
 
-> single-end clean data set has three conditions: Col0, Col0 treated with flg22, and Col0 treated with methyl jasmonate (MeJA). Each condition has three replicates.
+> <span id="single-end-data">single-end</span> clean data set has three conditions: Col0, Col0 treated with flg22, and Col0 treated with methyl jasmonate (MeJA). Each condition has three replicates.
 
 ```
 ├── Col0_s_rep1_small.fq.gz
@@ -183,9 +183,13 @@ HISAT2 using ath genome for Col0_p_rep1_small.
 
 1. Open and fix the script `workshop_align_singleend_practice.sh` at your home folder (enter home folder by execute `cd ~`). Three places marked with `Q1 - Q3` needed to be fixed. 
 
-> `Q1`
+> `Q1`: pattern for [single-end fastq data](#single-end-data)?
 
-2. Test your codes:
+> `Q2`: command for kallisto alignment?
+
+> `Q3`: command for samtools sort reads?
+
+2. Test your codes through `ssh`:
 
 ```
 ## 1. run single-end (pseudo-)alignment, it may take 5 min
