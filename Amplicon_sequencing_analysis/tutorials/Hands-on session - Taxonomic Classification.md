@@ -37,6 +37,7 @@ For each method, one is free to choose a set of reference sequences and taxonomy
 
 **Classifying amplicon reads**
 Pick the set of OTU/ASV representatives in references/centroid.fna and classify them by taxonomy using the QIIME2 methods. Refer to the online documentation and specify an output folder for each combination of method and reference dataset.
+
 ----
 
 Import the reference dataset into qiime2:
