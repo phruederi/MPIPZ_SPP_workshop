@@ -8,7 +8,7 @@
 - [3. Alignment](#3-alignment)
     - [3.1 Alignment by HISAT2](#31-alignment-by-hisat2)
     - [3.2 Pseudo-alignment by kallisto](#32-pseudo-alignment-by-kallisto)
-    - [3.3 Run (pseudo-)alignment](#33-run-(pseudo-)-alignment)
+    - [3.3 Run (pseudo-)alignment](#33-run-pseudo-alignment)
 - [4. Practice](#4-practice)
 - [References](#references)
     
@@ -183,12 +183,11 @@ HISAT2 using ath genome for Col0_p_rep1_small.
 =====================================
 ```
 
-3. Summary 
-
-
 ## 4. Practice
 
-1. Open the script `workshop_align_singleend_practice.sh` at your home folder (enter home folder by execute `cd ~`). A total of three places marked with `Q1 - Q3` needed to be fixed. Then run it as:
+1. Open and fix the script `workshop_align_singleend_practice.sh` at your home folder (enter home folder by execute `cd ~`). Three places marked with `Q1 - Q3` needed to be fixed. 
+
+Test your codes:
 
 ```
 ## 1. run single-end (pseudo-)alignment, it may take 5 min
@@ -197,14 +196,11 @@ nohup bash ~/workshop_align_singleend_practice.sh > ~/align_singleend.out
 ## 2. check alignment information
 head -n 25 ~/align_singleend.out
 
-## 3. summary alignment results
+## 3. overview of alignment results
+tree ~/tree RNA-Seq_align_data
 ```
 
-2. Have an overview of 
-
-
-
-
+A fixed script `workshop_align_singleend_answer.sh` at your home folder can be used as a reference.
 
 ## References
 
