@@ -181,13 +181,11 @@ HISAT2 using ath genome for Col0_p_rep1_small.
 
 ## 4. Practice
 
-1. Open and fix the script `workshop_align_singleend_practice.sh` at your home folder (enter home folder by execute `cd ~`). Three places marked with `Q1 - Q3` needed to be fixed. 
+1. Open and fix the script `workshop_align_singleend_practice.sh` at your home folder (enter home folder by execute `cd ~`). Two places marked with `Q1 - Q2` needed to be fixed. 
 
 > `Q1`: pattern for [single-end fastq data](#single-end-data)?
 
 > `Q2`: command for kallisto alignment?
-
-> `Q3`: command for samtools sort reads?
 
 2. Test your codes through `ssh`:
 

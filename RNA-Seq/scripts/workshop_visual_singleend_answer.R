@@ -92,6 +92,7 @@ degres %<>%
   DESeq
 
 ## count transformation
+## Q1: how to transform row counts to log2-scaled form? ##
 rld <- rlog(degres)
 ntd <- normTransform(degres)
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -102,10 +103,12 @@ print('step3: PCA plot')
 print('##~~~~~~~~~~~~~~~~~~~~~~~##')
 cols <- colData(rld)[, 1] %>% factor(., labels = brewer.pal(3, name = 'Dark2'))
 
+## Q2: which function is used for PCA ##
 pca <- rld %>%
   assay %>%
   t %>%
   prcomp
+
 percentVar <- pca$sdev^2 %>%
   {./sum(.)} %>%
   {100 * .} %>%

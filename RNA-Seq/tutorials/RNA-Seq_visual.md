@@ -62,12 +62,13 @@ The following scripts shows how to calculate PC1 and PC2:
 
 ```R
 ## do not run the codes below！！
-## 'rld' is the log2 scale counts.
+## 'rld' is the log2-scaled counts.
 ## 'prcomp()' performs a principal components analysis.
 pca <- rld %>%
   assay %>%
   t %>%
   prcomp
+
 percentVar <- pca$sdev^2 %>%
   {./sum(.)} %>%
   {100 * .} %>%
@@ -111,20 +112,39 @@ The heatmap (top 50 DEGs) of pair-end RNA-Seq data looks like:
 
 ### 2.3 Run visualization
 
-1. Generated PCA plot and heatmap pair-end through `ssh`:
+1. Generated PCA plot and heatmap of pair-end RNA-Seq data through `ssh`:
 
 ```bash
 /netscratch/common/MPIPZ_SPP_workshop/software/R-3.6.1/bin/Rscript \
 ~/workshop_visual_pairend.R
 ```
 
+2. View `pdf` and `jpg` format plots at `~/RNA-Seq_visual`
+
+```bash
+RNA-Seq_visual/
+├── heatmap_pairend.jpg
+├── heatmap_pairend.pdf
+├── PCA_pairend.jpg
+└── PCA_pairend.pdf
+```
+
 ## 3. Practice
 
+1. Open and fix the script `workshop_visual_singleend_practice.sh` at your home folder (enter home folder by execute `cd ~`). Two places marked with `Q1 - Q2` needed to be fixed. 
+
+> `Q1`: how to transform row counts to log2-scaled form?
+
+> `Q2`: which function is used for PCA?
+
+2. Test your codes through `ssh` and view the plots at `~RNA-Seq_visual`:
 
 ```bash
 /netscratch/common/MPIPZ_SPP_workshop/software/R-3.6.1/bin/Rscript \
-~/workshop_visual_singleend_answer.R
+~/workshop_visual_singleend_practice.R
 ```
+
+A fixed script `workshop_visual_singleend_answer.sh` at your home folder can be used as a reference.
 
 ## References
 

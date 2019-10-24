@@ -49,8 +49,7 @@ for i in ${fqnames[@]}; do
                   -U ${CLEAN_PATH}/${i}.fq.gz \
                   -S ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.sam
 
-    ## Q3: command for samtools sort reads? ##
-    ## ${SAMTOOL_PATH}/samtools ... \ ##
+    ${SAMTOOL_PATH}/samtools sort \
                    -@ ${CORENUM} \
                    -o ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.bam \
                    ${ALIGN_PATH}/${i}_${SPECIES}_hisat2.sam
