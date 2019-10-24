@@ -46,7 +46,7 @@ We will use the whole pair-end alignments by kallisto for demonstration and sing
 
 2. Scripts
 
-Copy the scripts we need for visualization.
+Copy the scripts we need for visualization through `ssh`:
 
 ```
 cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_visual* ~
@@ -55,6 +55,27 @@ cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_visual
 ## 2. Visualization
 
 ### 2.1 PCA plot 
+
+PCA (principal component analysis) plot shows the samples in the 2D plane spanned by their first two principal components (PC1 and PC2). It is useful for visualizing the variation among RNA-Seq samples with many conditions and possible batch effects.
+
+The following scripts shows how to calculate PC1 and PC2:
+
+```R
+## do not run the codes below！！
+## 'rld' is the log2 scale counts.
+## 'prcomp()' performs a principal components analysis.
+pca <- rld %>%
+  assay %>%
+  t %>%
+  prcomp
+percentVar <- pca$sdev^2 %>%
+  {./sum(.)} %>%
+  {100 * .} %>%
+  round
+pca1 <- pca$x[,1]
+pca2 <- pca$x[,2]
+pcaData <- data.frame(PC1 = pca1, PC2 = pca2, condition = colData(rld)[, 1], ID = rownames(colData(rld)))
+```
 
 ![PCA_pairend](res/PCA_pairend.jpg)
 

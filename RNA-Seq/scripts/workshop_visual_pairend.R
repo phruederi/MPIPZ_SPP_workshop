@@ -101,8 +101,10 @@ pca <- rld %>%
   assay %>%
   t %>%
   prcomp
-percentVar <- pca$sdev^2/sum(pca$sdev^2)
-percentVar <- round(100 * percentVar)
+percentVar <- pca$sdev^2 %>%
+  {./sum(.)} %>%
+  {100 * .} %>%
+  round
 pca1 <- pca$x[,1]
 pca2 <- pca$x[,2]
 pcaData <- data.frame(PC1 = pca1, PC2 = pca2, condition = colData(rld)[, 1], ID = rownames(colData(rld)))
