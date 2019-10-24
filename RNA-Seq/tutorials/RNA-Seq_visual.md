@@ -64,12 +64,12 @@ cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_visual
 
 ### 2.3 Run visualization
 
-## 3. Practice
-
 ```bash
 /netscratch/common/MPIPZ_SPP_workshop/software/R-3.6.1/bin/Rscript \
 ~/workshop_visual_pairend.R
 ```
+
+## 3. Practice
 
 
 ```bash
