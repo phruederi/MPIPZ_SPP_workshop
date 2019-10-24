@@ -18,7 +18,7 @@
 
 1. Clean fastq files
 
-We will use pair-end data for demonstration and single-end data for practice. We generated a set of small fastq files (randomly select ~1k reads) for demonstration. 
+We generated a set of small fastq files (randomly select ~1k reads) to accelerate the analysis process. We will use pair-end data for demonstration and single-end data for practice.
 
 > pair-end clean data has two conditions: Col0 and Col0 treated with flg22. Each condition has three replicates.
 
@@ -187,7 +187,9 @@ HISAT2 using ath genome for Col0_p_rep1_small.
 
 1. Open and fix the script `workshop_align_singleend_practice.sh` at your home folder (enter home folder by execute `cd ~`). Three places marked with `Q1 - Q3` needed to be fixed. 
 
-Test your codes:
+> `Q1`
+
+2. Test your codes:
 
 ```
 ## 1. run single-end (pseudo-)alignment, it may take 5 min
