@@ -130,18 +130,14 @@ kallisto quant \
 
 ### 3.3 Run (pseudo-)alignment
 
-1. Run pair-end (pseudo-)alignment:
+1. Run pair-end (pseudo-)alignment
 
 ```bash
 ## it may take 5 min
-nohup bash ~/workshop_align_pairend.sh > ~/align_pairend.out
+bash ~/workshop_align_pairend.sh
 ```
 
-2. Check alignment information:
-
-```bash
-head -n 36 ~/align_pairend.out
-```
+2. Check alignment information
 
 The output looks like:
 
@@ -193,12 +189,9 @@ HISAT2 using ath genome for Col0_p_rep1_small.
 
 ```
 ## 1. run single-end (pseudo-)alignment, it may take 5 min
-nohup bash ~/workshop_align_singleend_practice.sh > ~/align_singleend.out
+bash ~/workshop_align_singleend_practice.sh
 
-## 2. check alignment information
-head -n 25 ~/align_singleend.out
-
-## 3. overview of alignment results
+## 2. overview of alignment results
 tree ~/tree RNA-Seq_align_data
 ```
 

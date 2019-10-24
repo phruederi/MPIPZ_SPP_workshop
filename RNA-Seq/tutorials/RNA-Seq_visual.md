@@ -49,7 +49,7 @@ We will use the whole pair-end alignments by kallisto for demonstration and sing
 Copy the scripts we need for visualization.
 
 ```
-cp cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_visual* ~
+cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_visual* ~
 ```
 
 ## 2. Visualization
