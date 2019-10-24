@@ -16,7 +16,7 @@ checkFlg22 <- function(v, threshold) {
     return(res)
 }
 
-save_pheatmap_jpg <- function(x, filename, width = 1200, height = 1000, res = 150) {
+save_pheatmap_jpg <- function(x, filename, width = 480, height = 480) {
   jpeg(filename, width = width, height = height, res = res)
   grid::grid.newpage()
   grid::grid.draw(x$gtable)

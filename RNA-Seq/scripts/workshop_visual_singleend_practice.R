@@ -9,7 +9,7 @@ checkFlg22 <- function(v, threshold) {
     require('magrittr')
 
     res <- v %>%
-    split(rep(1 : 2, each = 3)) %>%
+    split(rep(1 : 3, each = 3)) %>%
     sapply(checkZeros, threshold) %>%
     all
 
@@ -57,9 +57,9 @@ print('##~~~~~~~~~~~~~~~~~~~~~~~##')
 wd <- '/netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_align_data'
 setwd(wd)
 
-annoSample <- tibble(condition = paste0(rep(c('Col0', 'flg22'), each = 3),
-                                     '_p_',
-                                     rep(c('rep1', 'rep2', 'rep3'), 2))) %>%
+annoSample <- tibble(condition = paste0(rep(c('Col0', 'flg22', 'MeJA'), each = 3),
+                                     '_s_',
+                                     rep(c('rep1', 'rep2', 'rep3'), 3))) %>%
   mutate(sample = paste0(condition, '_ath_kallisto'))
 
 kres <- file.path(wd, annoSample$sample, 'abundance.h5') %>%
@@ -72,7 +72,7 @@ print('##~~~~~~~~~~~~~~~~~~~~~~~##')
 print('step2: normalization counts')
 print('##~~~~~~~~~~~~~~~~~~~~~~~##')
 
-condi <- c('Col0', 'flg22')
+condi <- c('Col0', 'flg22', 'MeJA')
 sampleTable <- data.frame(condition = factor(rep(condi, each = 3), levels = condi))
 rownames(sampleTable) <- colnames(kres$counts)
 
@@ -95,7 +95,7 @@ ntd <- normTransform(degres)
 print('##~~~~~~~~~~~~~~~~~~~~~~~##')
 print('step3: PCA plot')
 print('##~~~~~~~~~~~~~~~~~~~~~~~##')
-cols <- colData(rld)[, 1] %>% factor(., labels = brewer.pal(3, name = 'Dark2')[1:2])
+cols <- colData(rld)[, 1] %>% factor(., labels = brewer.pal(3, name = 'Dark2'))
 
 pca <- rld %>%
   assay %>%
@@ -113,15 +113,16 @@ p <- ggplot(pcaData, aes(x = PC1, y = PC2, colour = condition)) +
   ylab(paste0("PC2: ",percentVar[2],"% variance")) +
   scale_colour_manual(values = levels(cols))
 
-ggsave(plot = p, file.path(outdir, 'PCA_pairend.jpg'))
-ggsave(plot = p, file.path(outdir, 'PCA_pairend.pdf'))
+ggsave(plot = p, file.path(outdir, 'PCA_singleend.jpg'))
+ggsave(plot = p, file.path(outdir, 'PCA_singleend.pdf'))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~heatmap~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 print('##~~~~~~~~~~~~~~~~~~~~~~~##')
 print('step3: PCA plot')
 print('##~~~~~~~~~~~~~~~~~~~~~~~##')
-cond <- list(c('Col0', 'flg22'))
+cond <- list(c('Col0', 'flg22'),
+             c('Col0', 'MeJA'))
 
 ## DEGs
 resRaw <- lapply(cond,
@@ -140,13 +141,17 @@ res <- cbind.data.frame(as.matrix(mcols(degres)[, 1:10]), assay(ntd), stringsAsF
   as_tibble %>%
   bind_cols(resRaw) %>%
   inner_join(anno, by = 'ID') %>%
-  select(ID, Gene : Description, Col0_p_rep1 : Col0_vs_flg22_log2FoldChange) %>%
+  select(ID, Gene : Description, Col0_s_rep1 : Col0_vs_MeJA_log2FoldChange) %>%
   arrange(Col0_vs_flg22_padj)
 
 ## selected DEGs
+sDEGs <- c(res$ID[1:30],
+           res %>% arrange(Col0_vs_MeJA_padj) %>% .$ID %>% .[1:30]) %>%
+  unique
+
 heatmapData <- degres %>%
   rownames %>%
-  match(res$ID[1:50], .) %>%
+  match(sDEGs, .) %>%
   assay(ntd)[., ]
 
 df <- colData(degres) %>% as.data.frame
@@ -155,7 +160,9 @@ heatmapPlot <- pheatmap(heatmapData,
                         show_rownames = FALSE,
                         cluster_cols = FALSE,
                         annotation_col = df,
-                        annotation_colors = list(condition = c(Col0 = '#1B9E77', flg22 = '#D95F02')))
-save_pheatmap_jpg(heatmapPlot, file.path(outdir, 'heatmap_pairend.jpg'))
-save_pheatmap_pdf(heatmapPlot, file.path(outdir, 'heatmap_pairend.pdf'))
+                        annotation_colors = list(condition = c(Col0 = '#1B9E77', flg22 = '#D95F02', MeJA = '#7570B3')))
+save_pheatmap_jpg(heatmapPlot, file.path(outdir, 'heatmap_singleend.jpg'))
+save_pheatmap_pdf(heatmapPlot, file.path(outdir, 'heatmap_singleend.pdf'))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
