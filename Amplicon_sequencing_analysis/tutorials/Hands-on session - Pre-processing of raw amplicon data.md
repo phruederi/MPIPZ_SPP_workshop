@@ -30,12 +30,9 @@ conda activate qiime2-2019.7
 QIIME2 has a specific file format (.qza) to install information, so we need to convert the data into a QIIME readable format. Here we only show how to import data in which only one barcode is attached to each sample. An example how to import data with double barcodes is given in the extended material.
 ```
 mkdir raw_data 
-mv *.gz raw_data
-cd raw_data
-mv Barcode.fastq.gz barcodes.fastq.gz
-mv Forward.fastq.gz forward.fastq.gz
-mv Reverse.fastq.gz reverse.fastq.gz
-cd ..
+mv /netscratch/common/MPIPZ_SPP_workshop/Amplicon/data/Barcode.fastq.gz raw_data/barcodes.fastq.gz
+mv /netscratch/common/MPIPZ_SPP_workshop/Amplicon/data/Forward.fastq.gz raw_data/forward.fastq.gz
+mv /netscratch/common/MPIPZ_SPP_workshop/Amplicon/data/Reverse.fastq.gz raw_data/reverse.fastq.gz
 ```
 Here we create a folder that exclusively deposits the three sequencing data files and rename the three sequencing files as QIIME2 can only recognize the files with those names.
 
@@ -65,6 +62,7 @@ conda deactivate
 **Step3: Merge Pair-end Reads and Perform Quality Filtering**
 This step is intended to remove low-quality reads in each sample
 ```
+sh /netscratch/common/MPIPZ_SPP_workshop/Amplicon/bash_script/merge_pairs.sh
 awk '{if(NR>1){print $0}}' mapping.txt| cut -f 1 | while read line;do F1=`ls demultiplexed_data/*L001_R1_001.fastq.gz | grep ${line}_`; R1=`ls demultiplexed_data/*L001_R2_001.fastq.gz | grep ${line}_`; flash2 $F1 $R1 -M 250 -o $line -x 0.25 -d demultiplexed_data/;done
 ```
 You can check the output from flash2:
@@ -79,10 +77,12 @@ rm demultiplexed_data/*.hist*
 ```
 Quality filtering
 ```
+sh /netscratch/common/MPIPZ_SPP_workshop/Amplicon/bash_script/quality_filter.sh
 for i in demultiplexed_data/*.extendedFrags.fastq; do name=`basename $i .extendedFrags.fastq`; ../software/usearch/usearch -fastq_filter $i -fastaout demultiplexed_data/${name}.trimmed.fasta -fastq_maxee 3 -fastq_maxns 0 -relabel $name.;done
 ```
 Rename the reads in each sample in order to make the names compatible in the script generating the OTU table.
 ```
+sh /netscratch/common/MPIPZ_SPP_workshop/Amplicon/bash_script/demultiplex.sh
 for i in demultiplexed_data/*.trimmed.fasta;do name=`basename $i .trimmed.fasta`; awk -v sample="$name" 'BEGIN{c=1}{if(/^>/){print ">"sample"."c";barcodelabel="sample;c++} else{print $0}}' $i > demultiplexed_data/$name.trimmed_renamed.fasta;done
 rm demultiplexed_data/*.trimmed.fasta
 ```
@@ -92,20 +92,20 @@ rm demultiplexed_data/*.trimmed.fasta
 Sequences without errors that come from the same biological entity are identical. Ideally, most of the dataset would consist of many replicates of the same real template sequences. Although this is unfortunately not the case (~50% of the reads only, due to errors and artifacts), it is possible to substantially speed-up downstream processing by removing replicates (while keeping count), e.g. by using the following command in USEARCH:
 ```
 cat demultiplexed_data/*.trimmed_renamed.fasta > demultiplexed_data/merged_seqs.fasta
-../software/usearch/usearch -derep_fulllength demultiplexed_data/merged_seqs.fasta -fastaout demultiplexed_data/seqs_unique.fasta -sizeout
+/netscratch/common/MPIPZ_SPP_workshop/software/usearch/usearch -derep_fulllength demultiplexed_data/merged_seqs.fasta -fastaout demultiplexed_data/seqs_unique.fasta -sizeout
 ```
 
 **Step5: Sort by abundance and discard singletons**
 Assuming that singleton sequences (only appear once in the dataset) are likely artifacts, it is advisable to remove them from the dataset
 ```
-../software/usearch/usearch -sortbysize demultiplexed_data/seqs_unique.fasta -fastaout demultiplexed_data/seqs_unique_sorted.fasta -minsize 2
+/netscratch/common/MPIPZ_SPP_workshop/software/usearch/usearch -sortbysize demultiplexed_data/seqs_unique.fasta -fastaout demultiplexed_data/seqs_unique_sorted.fasta -minsize 2
 ```
 
 **Step6: OTU clustering**
 One of the most important steps in pre-processing of amplicon data is OTU clustering (or OTU 'picking'). This step consists on grouping together sequences based on similarity generating taxonomic units that roughly correspond to the species (~97% sequence identity) or genus level (~95%). During OTU clustering, the algorithm automatically *de novo* identifies chimera in the dataset. 
 ```
 mkdir otu_result
-../software/usearch/usearch -cluster_otus demultiplexed_data/seqs_unique_sorted.fasta -otus otu_result/otus.fa -uparseout otu_result/uparse.txt -relabel OTU_
+/netscratch/common/MPIPZ_SPP_workshop/software/usearch/usearch -cluster_otus demultiplexed_data/seqs_unique_sorted.fasta -otus otu_result/otus.fa -uparseout otu_result/uparse.txt -relabel OTU_
 ```
 This generates a set of representative sequences for each OTU or cluster (which are stored in the file otus.fa). Then reads (prior de-replication and either before or after quality filtering) can be mapped back onto the OTU representatives to obtain read counts for each OTU and generate an OTU table (see bellow).
 
@@ -118,7 +118,7 @@ grep -c '^>' otu_result/otus.fa
 **Step7: Generate the OTU Table**
 Next, all reads are mapped back onto the relatively small set of OTU representative sequences by using the command:
 ```
-../software/usearch/usearch -usearch_global demultiplexed_data/merged_seqs.fasta -db otu_result/otus.fa -strand plus -id 0.97 -uc otu_result/read_mapping.uc
+/netscratch/common/MPIPZ_SPP_workshop/software/usearch/usearch -usearch_global demultiplexed_data/merged_seqs.fasta -db otu_result/otus.fa -strand plus -id 0.97 -uc otu_result/read_mapping.uc
 ```
 The output of this tool is in USEARCH cluster format (UC), a more description of UC format can be found here: https://www.drive5.com/usearch/manual/opt_uc.html
 ```
@@ -126,7 +126,7 @@ head otu_result/read_mapping.uc
 ```
 and needs to be converted for downstream analyses, for example to text format, which can be loaded into R. This can be done with the following python script:
 ```
-python ../software/usearch/uc2otutab.py otu_result/read_mapping.uc > otu_result/otu_table.txt
+python /netscratch/common/MPIPZ_SPP_workshop/software/usearch/uc2otutab.py otu_result/read_mapping.uc > otu_result/otu_table.txt
 ```
 Now we can check the otu table:
 ```
@@ -180,7 +180,7 @@ The steps from raw reads to demutiplexed merged reads are the same with the step
 Align the amplicon reads to the reference sequences with usearch:
 ```
 mkdir syncom_result
-../software/usearch/usearch -uparse_ref demultiplexed_data/merged_seqs.fasta -db reference_data/syncom_reference.fna -strand plus -uparseout syncom_result/uparse.up -threads 1
+/netscratch/common/MPIPZ_SPP_workshop/software/usearch/usearch -uparse_ref demultiplexed_data/merged_seqs.fasta -db reference_data/syncom_reference.fna -strand plus -uparseout syncom_result/uparse.up -threads 1
 ```
 Modify the format of output file into uc format:
 ```
@@ -190,7 +190,7 @@ Generate OTU table with following command:
 *we need to deactivate current qiime2 environment, because the default python compiler in this environment is python3, but the script to generate otu tables in Usearch is written in python2*
 ```
 conda deactivate 
-python ../software/usearch/uc2otutab.py syncom_result/otu_clustering.uc > syncom_result/otu_table.txt
+python /netscratch/common/MPIPZ_SPP_workshop/software/usearch/uc2otutab.py syncom_result/otu_clustering.uc > syncom_result/otu_table.txt
 ```
 *or we can call python2 compiler directly without deactivating qiime2 environment with the command:*
 ```
