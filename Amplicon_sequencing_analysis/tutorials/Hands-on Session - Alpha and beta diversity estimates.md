@@ -11,12 +11,17 @@ This step can be easily performed using QIIME2 by running the following command:
 ```
 qiime feature-table rarefy --i-table asv_result/asv_table.qza --p-sampling-depth 500 --o-rarefied-table asv_result/asv_table_raref.qza
 ```
-for an equal sampling depth of 500 reads per sample.
+for an equal sampling depth of 500 reads per sample. You can also check the result by running the command:
+```
+qiime tools export --input-path asv_result/asv_table_raref.qza --output-path asv_result/rarefied
+biom summarize-table -i asv_result/rarefied/feature-table.biom -o asv_result/rarefied/feature-table_summary.txt
+cat asv_result/rarefied/feature-table_summary.txt
+```
 
 **Normalization(total sum)**
 One way to normalize OTU tables (per samples) while avoiding throwing away useful data is to divide each count of each OTU by the total sum of all reads found in a given sample, which is known as total sum normalization. This can be done using a simple R script as follows:
 ```
-./scripts/normalize_otu_table.R asv_result/asv_table_rename.tsv asv_result/asv_table_norm.tsv
+Rscript ../software/normalize_otu_table.R asv_result/asv_table_rename.tsv asv_result/asv_table_norm.tsv
 ```
 
 **Filtering of low abundance OTUs**
