@@ -162,6 +162,7 @@ head dna-sequences.fasta
 You can find the names of each asv are randomly coded, but the appearence order of each asv in both asv_table.tsv and dna-sequences.fasta is the same. So you can rename the asv with following commands:
 ```
 awk 'BEGIN{count=1}{if(NR>2){$1="ASV_"count; print $0; count++} else{print $0}}' asv_table.tsv > asv_table_rename.tsv
+sed -i '3,$s/ /\t/g' asv_table_rename.tsv
 awk 'BEGIN{count=1}{if(/>/){$0=">ASV_"count; print $0; count++} else{print $0}}' dna-sequences.fasta > dna-sequences_rename.fasta
 ```
 Check the renamed files:
