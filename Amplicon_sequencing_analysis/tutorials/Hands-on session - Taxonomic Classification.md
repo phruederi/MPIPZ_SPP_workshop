@@ -31,7 +31,7 @@ In QIIME2, taxonomic classification is done using a plugin feature-classifier, w
 ```
 - classify-sklearn: Naive Bayes Classifier
 
-For each method, one is free to choose a set of reference sequences and taxonomy. In general, there are three databases to choose, including [Greengenes], [RDP] and [Silva]. But only Silva keeps updating. In this tutorial, we only introduce how to classify reads taxonomically based on Silva database.
+For each method, one is free to choose a set of reference sequences and taxonomy. In general, there are three databases to choose, including [Greengenes], [RDP] and [Silva]. But only Silva keeps updated. In this tutorial, we only introduce how to classify reads taxonomically based on Silva database.
 - ./data/tax/silva_132: the ARB-SILVA database (Download here: https://ftp.arb-silva.de/qiime/)
 
 
