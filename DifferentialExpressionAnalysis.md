@@ -1,7 +1,7 @@
 # Differential expression analysis
 
 Once the RNAseq reads aligned on a reference and their per-gene abundance quantified, differential expression analysis can be conducted. Such analysis consists in identifying the genes that are over- and under-expressed in the test condition, compared to the control condition.
-Here, we will try to identify the genes that are differentially expressed in the Flg22 mutants, compared to the Col0 plants. 
+Here, we will try to identify the genes that are differentially expressed in the Flg22 treatment, compared to the Col0 plants. 
 
 ## 0. Prior to the differential expression analysis
 
