@@ -5,12 +5,12 @@ Prior to any analysis using a RNAseq dataset, one might want to have a look at t
 
 ## 0. Prior to the Quality Check...
 
-In this session we will work on a small set of single-end reads. Create a new folder in your home directory and copy this set of reads in it. Use the following command lines:
+In this session we will work on a small set of paired-end reads. Create a new folder in your home directory and copy this set of reads in it. Use the following command lines:
 
 ```
 mkdir ~/QC_session
 cd ~/QC_session
-gunzip -c /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_smallraw_data/Col0_s_rep1_small.fq.gz > reads.fastq
+gunzip -c /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_smallraw_data/Col0_p_rep2_small_R1.fq.gz > reads.fastq
 ```
 
 ## 1. Fastq files
@@ -128,9 +128,9 @@ Here are the tasks that can be performed with Trimmomatic, on either single-end 
 
 Let's run Trimmomatic on our FASTQ files, using the following command line
 
-```  trimmomatic SE -trimlog log.txt reads.fastq reads_trimmed.fastq LEADING:20 TRAILING:20 AVGQUAL:20 HEADCROP:10 MINLEN:100```
+```  trimmomatic SE reads.fastq reads_trimmed.fastq LEADING:20 TRAILING:20 AVGQUAL:20 HEADCROP:10 MINLEN:100```
 
-You can modify the parameters according to what you have seen in your FastQC report.
+Mdify the parameters according to what you have seen in your FastQC report.
 
 Now let's check if Trimmomatic improved the quality of our reads:
 
