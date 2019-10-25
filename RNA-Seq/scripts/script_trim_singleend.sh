@@ -1,3 +1,8 @@
+##
+## originally by Yulong Niu
+## yniu@mpipz.mpg.de
+##
+
 #########################trim single-end#######################
 date
 

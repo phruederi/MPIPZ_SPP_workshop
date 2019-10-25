@@ -1,3 +1,8 @@
+##
+## originally by Yulong Niu
+## yniu@mpipz.mpg.de
+##
+
 date
 
 REF_PATH=/netscratch/dep_psl/grp_rgo/yniu/ref/ath
