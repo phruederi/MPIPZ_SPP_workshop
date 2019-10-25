@@ -89,7 +89,7 @@ qiime tools export --input-path taxonomy/silva_nb_taxonomy.qza --output-path tax
 ```
 ----
 **Visualize community structure**
-You can plot barplots to visualize the taxonomic community structure at different taxonomic levels. In order to reach this, you have to collapse the data at specified taxonomic level first. For example, if you want plot the community structure at family level, collapsing means summming up the abundance of OTUs/ASVs annotated to the same families. In QIIME2, there is a plugin designated to collapse the profiling table at different taxonomic level, but each time, only one taxonomic level can be specified. You can collapse the data at family by running the commands:
+You can plot barplots to visualize the taxonomic community structure at different taxonomic levels. In order to reach this, you have to collapse the data at specified taxonomic level first. For example, if you want plot the community structure at family level, collapse means summming up the abundance of OTUs/ASVs annotated to the same families. In QIIME2, there is a plugin designated to collapse the profiling table at different taxonomic level, but each time, only one taxonomic level can be specified. You can collapse the data at family by running the commands:
 ```
 qiime taxa collapse --i-table asv_result/asv_table.qza --i-taxonomy taxonomy/silva_nb_taxonomy.qza --p-level 5 --o-collapsed-table asv_result/asv_table_family.qza
 qiime tools export --input-path asv_result/asv_table_family.qza --output-path asv_result/collapsed_table
