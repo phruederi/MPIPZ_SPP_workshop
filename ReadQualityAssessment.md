@@ -10,7 +10,7 @@ In this session we will work on a small set of single-end reads. Create a new fo
 ```
 mkdir ~/QC_session
 cd ~/QC_session
-gunzip -c /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_smallraw_data/col0_s_rep1_small.fq.gz > reads.fastq
+gunzip -c /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_smallraw_data/Col0_s_rep1_small.fq.gz > reads.fastq
 ```
 
 ## 1. Fastq files
