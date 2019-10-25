@@ -174,5 +174,3 @@ heatmapPlot <- pheatmap(heatmapData,
 save_pheatmap_jpg(heatmapPlot, file.path(outdir, 'heatmap_singleend.jpg'))
 save_pheatmap_pdf(heatmapPlot, file.path(outdir, 'heatmap_singleend.pdf'))
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
