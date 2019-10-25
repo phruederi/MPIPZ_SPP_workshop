@@ -103,7 +103,7 @@ head asv_result/collapsed_table/asv_table_family.tsv
 ```
 Run the command to visualize the community structure:
 ```
-Rscript ./script/plot_community_structure.R asv_result/collapsed_table/asv_table_family.tsv family ./asv_result/collapsed_table/
+Rscript ../software/plot_community_structure.R asv_result/collapsed_table/asv_table_family.tsv family ./asv_result/collapsed_table/
 ```
 This command will generate 3 pdf files. One plots all the families observed in the data; the other two files filter out the families whose relative abundances are smaller than 0.1% in all samples and whose averagee relative abundances are smaller than 1% in all samples respetively.
 
