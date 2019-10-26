@@ -98,7 +98,7 @@ kallisto index \
 
 ### 3.1 Alignment by HISAT2
 
-The following scripts shows how to align `Col0_p_rep1_small_R1.fq.gz` and `Col0_p_rep1_small_R2.fq.gz`
+The following scripts show how to align `Col0_p_rep1_small_R1.fq.gz` and `Col0_p_rep1_small_R2.fq.gz`
 
 ```bash
 ## do not run the codes below！！

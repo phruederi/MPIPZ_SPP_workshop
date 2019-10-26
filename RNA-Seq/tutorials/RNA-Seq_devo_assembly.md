@@ -31,7 +31,28 @@ cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_denovo
 
 ## 2. De novo assembly 
 
+The following scripts show how to do *de novo* transcriptome assembly by [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki):
 
+```bash
+## do not run the codes below！！
+## --seqType: type of sequencing results, 'fq' means fastq files.
+## --left and --right: pair-end sequence files.
+## --output: output path.
+## --trimmomatic: with trim by trimmomatic.
+## --normalize_by_read_set: reads normalization.
+## --min_contig_length: minimume length of config.
+## --max_memory: max allowed memory.
+## --CPU: cpu number.
+Trinity --seqType fq \
+        --left Col0_p_rep1_select_R1.fq.gz,flg22_p_rep1_select_R1.fq.gz \
+        --right Col0_p_rep1_select_R2.fq.gz,flg22_p_rep1_select_R2.fq.gz \
+        --output trinity_output \
+        --trimmomatic \
+        --normalize_by_read_set \
+        --min_contig_length 400 \
+        --max_memory 20G \
+        --CPU 2
+```
 
 ## 3. Practice
 
