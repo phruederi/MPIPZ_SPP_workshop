@@ -48,7 +48,7 @@ We will use the whole pair-end alignments by kallisto for demonstration and sing
 
 Copy the scripts we need for visualization through `ssh`:
 
-```
+```bash
 cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_scripts/workshop_visual* ~
 ```
 
@@ -144,7 +144,7 @@ RNA-Seq_visual/
 ~/workshop_visual_singleend_practice.R
 ```
 
-A fixed script `workshop_visual_singleend_answer.sh` at your home folder can be used as a reference.
+`workshop_visual_singleend_answer.sh` at your home folder can be used as a reference.
 
 ## References
 

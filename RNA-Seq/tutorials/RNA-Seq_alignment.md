@@ -18,7 +18,7 @@
 
 1. Clean fastq files
 
-We generated a set of small fastq files (randomly select ~1k reads) to accelerate the analysis process. We will use pair-end data for demonstration and single-end data for practice.
+We generated a set of small fastq files (~1k reads) to accelerate the alignment process. We will use pair-end data for demonstration and single-end data for practice.
 
 > pair-end clean data has two conditions: Col0 and Col0 treated with flg22. Each condition has three replicates.
 
@@ -197,7 +197,7 @@ bash ~/workshop_align_singleend_practice.sh
 tree ~/tree RNA-Seq_align_data
 ```
 
-A fixed script `workshop_align_singleend_answer.sh` at your home folder can be used as a reference.
+`workshop_align_singleend_answer.sh` at your home folder can be used as a reference.
 
 ## References
 
