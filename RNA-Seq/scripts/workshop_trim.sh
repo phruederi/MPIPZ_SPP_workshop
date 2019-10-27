@@ -14,7 +14,7 @@ if [ ! -d "${CLEAN_PATH}" ]; then
     mkdir ${CLEAN_PATH}
 fi
 
-CORENUM=2
+CORENUM=1
 
 cd ${RAW_PATH}
 

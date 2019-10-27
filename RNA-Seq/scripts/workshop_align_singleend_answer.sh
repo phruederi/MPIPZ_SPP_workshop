@@ -20,7 +20,7 @@ if [ ! -d "${ALIGN_PATH}" ]; then
     mkdir ${ALIGN_PATH}
 fi
 
-CORENUM=2
+CORENUM=1
 SPECIES='ath'
 
 cd ${REF_PATH}
@@ -32,7 +32,7 @@ fqnames=($(echo "${fq[@]%%.*}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
 
 for i in ${fqnames[@]}; do
 
-    echo "===================================="
+    echo "====================================="
     echo "Kallisto using ${SPECIES} cDNA for ${i}."
 
     ## Q2: command for kallisto alignment? ##

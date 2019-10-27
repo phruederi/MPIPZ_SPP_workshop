@@ -16,7 +16,7 @@ if [ ! -d "${SELECT_PATH}" ]; then
     mkdir ${SELECT_PATH}
 fi
 
-CORENUM=2
+CORENUM=1
 
 cd ${SELECT_PATH}
 
