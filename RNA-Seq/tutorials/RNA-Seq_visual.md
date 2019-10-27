@@ -144,7 +144,7 @@ RNA-Seq_visual/
 ~/workshop_visual_singleend_practice.R
 ```
 
-`workshop_visual_singleend_answer.sh` at your home folder can be used as a reference, and example [PCA plot](res/PCA_singleend.jpg) and [heatmap](res/heatmap_singleend.jpg)
+`workshop_visual_singleend_answer.sh` at your home folder can be used as a reference, and example [PCA plot](res/PCA_singleend.jpg) and [heatmap](res/heatmap_singleend.jpg).
 
 ## References
 
