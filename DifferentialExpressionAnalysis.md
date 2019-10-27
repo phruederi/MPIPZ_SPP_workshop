@@ -151,3 +151,10 @@ bpRes <-cbind(bpRes,fdr)
 
 ```
 
+# References
+
+Love, M. I., Huber, W., & Anders, S. (2014). Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome biology, 15(12), 550.
+
+Zhu, A., Ibrahim, J. G., & Love, M. I. (2018). Heavy-tailed prior distributions for sequence count data: removing the noise and preserving large differences. Bioinformatics, 35(12), 2084-2092.
+
+Alexa, A., & Rahnenfuhrer, J. (2010). topGO: enrichment analysis for gene ontology. R package version, 2(0).
