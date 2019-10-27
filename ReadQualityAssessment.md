@@ -135,3 +135,9 @@ Mdify the parameters according to what you have seen in your FastQC report.
 Now let's check if Trimmomatic improved the quality of our reads:
 
 ``` fastqc reads_trimmed.fastq ```
+
+# References
+
+Andrews, S. (2010). FastQC: a quality control tool for high throughput sequence data.
+
+Bolger, A. M., Lohse, M., & Usadel, B. (2014). Trimmomatic: a flexible trimmer for Illumina sequence data. Bioinformatics, 30(15), 2114-2120.
