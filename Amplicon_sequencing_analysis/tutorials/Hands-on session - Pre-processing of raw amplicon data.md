@@ -23,6 +23,7 @@ In this case, only one barcode is attached to each sample, but sometimes double 
 **Activate QIIME2**
 To make sure that the python compiler finds all the necessary packages, we need to activate the QIIME2 installation environments.
 ```
+source /netscratch/common/MPIPZ_SPP_workshop/software/activate.sh
 conda activate qiime2-2019.7
 ```
 
