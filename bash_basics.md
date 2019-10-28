@@ -401,7 +401,7 @@ sudo apt install sshfs
 mkdir server_home
 
 # mount server home to folder server_home
-sshfs spp01@dell-node-13:/home/spp[your number here] server_home
+sshfs spp[your number here]@dell-node-13:/home/spp[your number here] server_home
 
 # to unmount the directory later on do:
 sudo umount server_home
