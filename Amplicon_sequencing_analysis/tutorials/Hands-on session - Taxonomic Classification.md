@@ -5,8 +5,8 @@
 Classification is typically done only for OTU representative sequences/ASVs instead of the full set of amplicon reads to save runtime. Taxonomic classification must be combined with abundance information in order to generate estimates and plots of the taxonomic community structure.
 
 **Data**
-- ./reference_data/silva_132/silva_132_97_16S.fna: contains representative 16S sequences for classification
-- ./reference_data/silva_132/taxonomy_7_levels.txt: contains the taxonomy files and database 16S sequences used for classification
+- /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/silva_132/silva_132_97_16S.fna: contains representative 16S sequences for classification
+- /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/silva_132/taxonomy_7_levels.txt: contains the taxonomy files and database 16S sequences used for classification
 - asv-seqs.qza: contains the representative ASV sequences to be classified
 If you perform OTU clustering and get OTU representative sequences, you can use the following command to convert the fasta format to qza format:
 ```
@@ -43,14 +43,14 @@ Pick the set of OTU/ASV representatives in references/centroid.fna and classify 
 Import the reference dataset into qiime2:
 *If you download the silva database from the above-mentioned website, you need to modify the taxonomy file (taxonomy_7_levels.txt) by adding "Feature ID[tab]Taxon" to the first line.*
 ```
-qiime tools import --input-path ./data/tax/silva_132/silva_132_97_16S.fna --output-path ./data/tax/silva_132/silva_132_97_16S.qza --type FeatureData[Sequence]
-qiime tools import --input-path ./data/tax/silva_132/taxonomy_7_levels.txt --output-path ./data/tax/silva_132/taxonomy_7_levels.qza --type FeatureData[Taxonomy]
+qiime tools import --input-path /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/silva_132/silva_132_97_16S.fna --output-path /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/silva_132/silva_132_97_16S.qza --type FeatureData[Sequence]
+qiime tools import --input-path /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/silva_132/taxonomy_7_levels.txt --output-path /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/silva_132/taxonomy_7_levels.qza --type FeatureData[Taxonomy]
 ```
 
 Run Blast+ to classify reads taxonomically
 ```
 mkdir taxonomy
-qiime feature-classifier classify-consensus-blast --i-query asv_result/asv-seqs.qza --i-reference-reads ./reference_data/silva_132/silva_132_97_16S.qza --i-reference-taxonomy ./reference_data/silva_132/taxonomy_7_levels.qza --o-classification taxonomy/silva_blast_taxonomy.qza
+qiime feature-classifier classify-consensus-blast --i-query asv_result/asv-seqs.qza --i-reference-reads /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/silva_132/silva_132_97_16S.qza --i-reference-taxonomy /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/silva_132/taxonomy_7_levels.qza --o-classification taxonomy/silva_blast_taxonomy.qza
 qiime tools export --input-path taxonomy/silva_blast_taxonomy.qza --output-path taxonomy/silva_blast_taxonomy
 ```
 Now you can go into the *silva_blast_taxonomy* folder to check the annotation file:
@@ -65,7 +65,7 @@ cd ../..
 
 Run Vsearch to classify reads taxonomically
 ```
-qiime feature-classifier classify-consensus-vsearch --i-query asv_result/asv-seqs.qza --i-reference-reads ./reference_data/silva_132/silva_132_97_16S.qza --i-reference-taxonomy ./reference_data/silva_132/taxonomy_7_levels.qza --o-classification taxonomy/silva_vsearch_taxonomy.qza
+qiime feature-classifier classify-consensus-vsearch --i-query asv_result/asv-seqs.qza --i-reference-reads /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/silva_132/silva_132_97_16S.qza --i-reference-taxonomy /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/silva_132/taxonomy_7_levels.qza --o-classification taxonomy/silva_vsearch_taxonomy.qza
 qiime tools export --input-path taxonomy/silva_vsearch_taxonomy.qza --output-path taxonomy/silva_vsearch_taxonomy
 ```
 Also check the output:
@@ -80,11 +80,11 @@ Run Bayes to classify reads taxonomically. Firstly you need to train the referen
 
 Train the classifier (Calculate the likelihood of the Bayesian formula)
 ```
-qiime feature-classifier fit-classifier-naive-bayes --i-reference-reads ./reference_data/silva_132/silva_132_97_16S.qza --i-reference-taxonomy ./reference_data/silva_132/taxonomy_7_levels.qza --o-classifier ./reference_data/silva_132/silva_132_ref_97_nb_classifier.qza
+qiime feature-classifier fit-classifier-naive-bayes --i-reference-reads /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/silva_132/silva_132_97_16S.qza --i-reference-taxonomy /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/silva_132/taxonomy_7_levels.qza --o-classifier ./reference_data/silva_132/silva_132_ref_97_nb_classifier.qza
 ```
 Taxonomic assignments of reads
 ```
-qiime feature-classifier classify-sklearn --i-reads asv_result/asv-seqs.qza --i-classifier ./reference_data/silva_132/silva_132_ref_97_nb_classifier.qza --o-classification taxonomy/silva_nb_taxonomy.qza
+qiime feature-classifier classify-sklearn --i-reads asv_result/asv-seqs.qza --i-classifier /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/silva_132/silva_132_ref_97_nb_classifier.qza --o-classification taxonomy/silva_nb_taxonomy.qza
 qiime tools export --input-path taxonomy/silva_nb_taxonomy.qza --output-path taxonomy/silva_nb_taxonomy
 ```
 ----
@@ -103,7 +103,7 @@ head asv_result/collapsed_table/asv_table_family.tsv
 ```
 Run the command to visualize the community structure:
 ```
-Rscript ../software/plot_community_structure.R asv_result/collapsed_table/asv_table_family.tsv family ./asv_result/collapsed_table/
+Rscript /netscratch/common/MPIPZ_SPP_workshop/software/plot_community_structure.R asv_result/collapsed_table/asv_table_family.tsv family ./asv_result/collapsed_table/
 ```
 This command will generate 3 pdf files. One plots all the families observed in the data; the other two files filter out the families whose relative abundances are smaller than 0.1% in all samples and whose averagee relative abundances are smaller than 1% in all samples respetively.
 
