@@ -21,7 +21,12 @@ By having a look at the Kallisto output files (in folder ```~/DGE_session/RNA-Se
 - .tsv files contain per-gene read counts and associated statistics such as gene length. Have a look at one of them using the following command: `head -n 10 abundance.tsv`
 - .h5 files are binary files that contain the exact same information. They are not 'readable', but way lighter. Using these files rather than the .tsv ones will make your analysis more memory-efficient.
 
-Now let's use R.
+Now let's use R. Launch the R interpreter with the following command:
+
+```bash
+/netscratch/common/MPIPZ_SPP_workshop/software/R-3.6.1/bin/R
+```
+
 Let's open the `abundance.h5` files for the three replicates of our two experimental conditions, using tximport.
 
 ```r
