@@ -186,7 +186,7 @@ The steps from raw reads to demutiplexed merged reads are the same with the step
 Align the amplicon reads to the reference sequences with usearch:
 ```
 mkdir syncom_result
-/netscratch/common/MPIPZ_SPP_workshop/software/usearch/usearch -uparse_ref demultiplexed_data/merged_seqs.fasta -db reference_data/syncom_reference.fna -strand plus -uparseout syncom_result/uparse.up -threads 1
+/netscratch/common/MPIPZ_SPP_workshop/software/usearch/usearch -uparse_ref demultiplexed_data/merged_seqs.fasta -db /netscratch/common/MPIPZ_SPP_workshop/Amplicon/reference_data/syncom_reference.fna -strand plus -uparseout syncom_result/uparse.up -threads 1
 ```
 Modify the format of output file into uc format:
 ```
