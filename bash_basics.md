@@ -408,8 +408,13 @@ sudo umount server_home
 
 ```
 
+## Add something to the PATH variable 
+The PATH variable stores all the paths where the shell looks when it tries to run a program.
 
+```shell
+export PATH=/netscratch/common/MPIPZ_SPP_workshop/software/R-3.6.1/bin:$PATH
 
+```
 ## Regular Expressions
 
 ##### Some important symbols:
