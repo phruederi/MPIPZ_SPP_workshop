@@ -23,16 +23,20 @@ In this case, only one barcode is attached to each sample, but sometimes double 
 **Activate QIIME2**
 To make sure that the python compiler finds all the necessary packages, we need to activate the QIIME2 installation environments.
 ```
+source /netscratch/common/MPIPZ_SPP_workshop/software/activate.sh
 conda activate qiime2-2019.7
 ```
 
 **Step1: Import sequencing data into QIIME2**
 QIIME2 has a specific file format (.qza) to install information, so we need to convert the data into a QIIME readable format. Here we only show how to import data in which only one barcode is attached to each sample. An example how to import data with double barcodes is given in the extended material.
 ```
+mkdir amplicon
+cd amplicon
 mkdir raw_data 
-mv /netscratch/common/MPIPZ_SPP_workshop/Amplicon/data/Barcode.fastq.gz raw_data/barcodes.fastq.gz
-mv /netscratch/common/MPIPZ_SPP_workshop/Amplicon/data/Forward.fastq.gz raw_data/forward.fastq.gz
-mv /netscratch/common/MPIPZ_SPP_workshop/Amplicon/data/Reverse.fastq.gz raw_data/reverse.fastq.gz
+cp /netscratch/common/MPIPZ_SPP_workshop/Amplicon/data/Barcode.fastq.gz raw_data/barcodes.fastq.gz
+cp /netscratch/common/MPIPZ_SPP_workshop/Amplicon/data/Forward.fastq.gz raw_data/forward.fastq.gz
+cp /netscratch/common/MPIPZ_SPP_workshop/Amplicon/data/Reverse.fastq.gz raw_data/reverse.fastq.gz
+cp /netscratch/common/MPIPZ_SPP_workshop/Amplicon/mapping.txt ./
 ```
 Here we create a folder that exclusively deposits the three sequencing data files and rename the three sequencing files as QIIME2 can only recognize the files with those names.
 

@@ -21,7 +21,7 @@ cat asv_result/rarefied/feature-table_summary.txt
 **Normalization(total sum)**
 One way to normalize OTU tables (per samples) while avoiding throwing away useful data is to divide each count of each OTU by the total sum of all reads found in a given sample, which is known as total sum normalization. This can be done using a simple R script as follows:
 ```
-Rscript ../software/normalize_otu_table.R asv_result/asv_table_rename.tsv asv_result/asv_table_norm.tsv
+Rscript /netscratch/common/MPIPZ_SPP_workshop/software/normalize_otu_table.R asv_result/asv_table_rename.tsv asv_result/asv_table_norm.tsv
 ```
 
 **Filtering of low abundance OTUs**
@@ -29,7 +29,7 @@ One additional step which might be particularly relevant in case of large differ
 
 There are various ways in which this step can be done, for example, by filtering all OTUs which are not present above a certain threshold in at least one treatment or condition (for highly varying conditions) or by removing all OTUs whose mean relative abundance in the entire dataset falls bellow the threshold (for studies with more homogeneous conditions). In general, filtering OTUs with mean abundances bellow a reasonably low value (e.g. 0.1% or 0.001%) is advisable. This can be done using an R script by typing:
 ```
-Rscript ../software/filter_otus.R asv_result/asv_table_norm.tsv asv_result/asv_table_norm_filtered.tsv 0.01
+Rscript /netscratch/common/MPIPZ_SPP_workshop/software/filter_otus.R asv_result/asv_table_norm.tsv asv_result/asv_table_norm_filtered.tsv 0.01
 ```
 Then you can import the filtered asv table into QIIME2 again by running the following two commands (Note: Only biom file in hdf5 format is compatible with *qiime tools import*): 
 ```
