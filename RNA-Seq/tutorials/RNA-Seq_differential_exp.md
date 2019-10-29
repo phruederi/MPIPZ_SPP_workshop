@@ -8,6 +8,7 @@ Here, we will try to identify the genes that are differentially expressed in the
 Create a working directory and link the mapping files we will use in it:
 
 ```
+export PATH=/netscratch/common/MPIPZ_SPP_workshop/software/R-3.6.1/bin:$PATH
 mkdir ~/DGE_session
 ln -s /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_align_data/ ~/DGE_session/
 
@@ -24,7 +25,7 @@ By having a look at the Kallisto output files (in folder ```~/DGE_session/RNA-Se
 Now let's use R. Launch the R interpreter with the following command:
 
 ```bash
-/netscratch/common/MPIPZ_SPP_workshop/software/R-3.6.1/bin/R
+R
 ```
 
 Let's open the `abundance.h5` files for the three replicates of our two experimental conditions, using tximport.
