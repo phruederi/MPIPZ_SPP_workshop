@@ -149,6 +149,8 @@ Preprocess of the data from raw reads to demultiplexed reads follows the same pr
 Here we just use the demultiplexed data (data_demux-details.qza) from step2 of *Pipeline for OTU clustering* to denoise the sequencing reads. DADA2 is a prevalent algorithm to correct the sequence errors in amplicon data. .you can run it using the command:
 ```
 mkdir asv_result
+cp /netscratch/common/MPIPZ_SPP_workshop/Amplicon/asv_result/asv-seqs.qza /home/spp01/amplicon/asv_result/
+cp /netscratch/common/MPIPZ_SPP_workshop/Amplicon/asv_result/asv_table.qza /home/spp01/amplicon/asv_result/
 qiime dada2 denoise-paired --i-demultiplexed-seqs data_demux.qza --o-table asv_result/asv_table.qza --o-representative-sequences asv_result/asv-seqs.qza --o-denoising-stats asv_result/asv-stats.qza --p-n-threads 1 --p-trunc-len-f 0 --p-trunc-len-r 0
 ```
 It generates three files including the asv table (similar to OTU table), representative asv sequences (similar to OTU sequences) and a file recording denoising stats. All three files are in qza format. To convert them into human-readable format, you can run commands:
