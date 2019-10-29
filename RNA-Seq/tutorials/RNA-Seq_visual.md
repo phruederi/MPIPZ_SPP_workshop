@@ -115,6 +115,10 @@ The heatmap (top 50 DEGs) of pair-end RNA-Seq data looks like:
 1. Generated PCA plot and heatmap of pair-end RNA-Seq data through `ssh`:
 
 ```bash
+## move to home
+cd ~
+
+## visual pair-end data
 /netscratch/common/MPIPZ_SPP_workshop/software/R-3.6.1/bin/Rscript \
 ~/workshop_visual_pairend.R
 ```
@@ -140,6 +144,10 @@ RNA-Seq_visual/
 2. Test your codes through `ssh` and view the plots at `~RNA-Seq_visual`:
 
 ```bash
+## move to home
+cd ~
+
+## visual single-end data
 /netscratch/common/MPIPZ_SPP_workshop/software/R-3.6.1/bin/Rscript \
 ~/workshop_visual_singleend_practice.R
 ```

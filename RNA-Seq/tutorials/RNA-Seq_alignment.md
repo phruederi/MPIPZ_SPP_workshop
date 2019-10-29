@@ -133,6 +133,9 @@ kallisto quant \
 1. Run pair-end (pseudo-)alignment through `ssh`:
 
 ```bash
+## move to home
+cd ~
+
 ## it may take 5 min
 bash ~/workshop_align_pairend.sh
 ```
@@ -190,6 +193,9 @@ HISAT2 using ath genome for Col0_p_rep1_small.
 2. Test your codes through `ssh`:
 
 ```
+## move to home
+cd ~
+
 ## 1. run single-end (pseudo-)alignment, it may take 5 min
 bash ~/workshop_align_singleend_practice.sh
 

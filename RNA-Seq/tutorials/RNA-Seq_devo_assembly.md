@@ -59,6 +59,9 @@ Trinity --seqType fq \
 1. Run the novo assembly through `ssh`:
 
 ```bash
+## move to home
+cd ~
+
 ## It may take 5 min
 bash ~/workshop_denovo_assembly.sh
 ```
