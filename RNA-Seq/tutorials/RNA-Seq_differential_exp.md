@@ -11,6 +11,7 @@ Create a working directory and link the mapping files we will use in it:
 export PATH=/netscratch/common/MPIPZ_SPP_workshop/software/R-3.6.1/bin:$PATH
 mkdir ~/DGE_session
 ln -s /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_align_data/ ~/DGE_session/
+cp /netscratch/common/MPIPZ_SPP_workshop/RNA-Seq/RNA-Seq_differential_exp/* ~/DGE_session/
 
 ```
 
